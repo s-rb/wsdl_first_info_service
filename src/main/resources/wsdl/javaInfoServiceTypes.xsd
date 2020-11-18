@@ -1,0 +1,89 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<xsd:schema
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+        attributeFormDefault="unqualified"
+        elementFormDefault="qualified"
+        targetNamespace="http://rsurkov.localhost/types">
+
+    <xsd:element name="getJavaInfoRequest">
+        <xsd:complexType/>
+    </xsd:element>
+
+    <xsd:element name="getJavaInfoResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="java.vendor" type="xsd:string"/>
+                <xsd:element name="java.vendor.url" type="xsd:string"/>
+                <xsd:element name="java.version" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getTotalMemoryRequest">
+        <xsd:complexType/>
+    </xsd:element>
+    <xsd:element name="getTotalMemoryResponse" type="xsd:long"/>
+
+    <xsd:element name="getFreeMemoryRequest">
+        <xsd:complexType/>
+    </xsd:element>
+    <xsd:element name="getFreeMemoryResponse" type="xsd:long"/>
+
+    <xsd:element name="getAvailableProcessorsRequest">
+        <xsd:complexType/>
+    </xsd:element>
+    <xsd:element name="getAvailableProcessorsResponse" type="xsd:int"/>
+
+    <xsd:element name="getOsInfoRequest">
+        <xsd:complexType/>
+    </xsd:element>
+    <xsd:element name="getOsInfoResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="os.name" type="xsd:string"/>
+                <xsd:element name="os.arch" type="xsd:string"/>
+                <xsd:element name="os.version" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getGcNamesRequest">
+        <xsd:complexType/>
+    </xsd:element>
+    <xsd:element name="getGcNamesResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element minOccurs="0" maxOccurs="unbounded"
+                             name="gcName"
+                             type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getGcInfoByNameRequest" type="xsd:string"/>
+    <xsd:element name="getGcInfoByNameResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="name" type="xsd:string"/>
+                <xsd:element name="collectionCount" type="xsd:long"/>
+                <xsd:element name="collectionTime" type="xsd:long"/>
+                <xsd:element name="lastGcStartTime" type="xsd:long"/>
+                <xsd:element name="lastGcEndTime" type="xsd:long"/>
+                <xsd:element name="lastGcDuration" type="xsd:long"/>
+                <xsd:element name="memoryUsageBeforeGc" type="xsd:string"/>
+                <xsd:element name="memoryUsageAfterGc" type="xsd:string"/>
+                <xsd:element name="id" type="xsd:long"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="getHelloByNameRequest" type="xsd:string"/>
+    <xsd:element name="getHelloByNameResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="name" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+</xsd:schema>

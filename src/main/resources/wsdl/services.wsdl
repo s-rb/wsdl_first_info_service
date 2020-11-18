@@ -1,0 +1,206 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:tns="http://rsurkov.localhost/"
+                  xmlns:tnst="http://rsurkov.localhost/types"
+                  xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                  name="JavaInfoService"
+                  targetNamespace="http://rsurkov.localhost/">
+    <wsdl:types>
+        <xsd:schema
+                attributeFormDefault="unqualified"
+                elementFormDefault="qualified"
+                targetNamespace="http://rsurkov.localhost/">
+            <xsd:import namespace="http://rsurkov.localhost/types"
+                        schemaLocation="javaInfoServiceTypes.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <!--    Messages-->
+    <wsdl:message name="GetJavaInfoSoapIn">
+        <wsdl:part element="tnst:getJavaInfoRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetJavaInfoSoapOut">
+        <wsdl:part name="parameters" element="tnst:getJavaInfoResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="GetOsInfoSoapIn">
+        <wsdl:part element="tnst:getOsInfoRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetOsInfoSoapOut">
+        <wsdl:part name="parameters" element="tnst:getOsInfoResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="GetTotalMemorySoapIn">
+        <wsdl:part element="tnst:getTotalMemoryRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetTotalMemorySoapOut">
+        <wsdl:part name="parameters" element="tnst:getTotalMemoryResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="GetFreeMemorySoapIn">
+        <wsdl:part element="tnst:getFreeMemoryRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetFreeMemorySoapOut">
+        <wsdl:part name="parameters" element="tnst:getFreeMemoryResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="GetAvailableProcessorsSoapIn">
+        <wsdl:part element="tnst:getAvailableProcessorsRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetAvailableProcessorsSoapOut">
+        <wsdl:part name="parameters" element="tnst:getAvailableProcessorsResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="GetGcNamesSoapIn">
+        <wsdl:part element="tnst:getGcNamesRequest" name="parameters"/>
+    </wsdl:message>
+    <wsdl:message name="GetGcNamesSoapOut">
+        <wsdl:part name="parameters" element="tnst:getGcNamesResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="GetGcInfoByNameSoapIn">
+        <wsdl:part name="parameters" element="tnst:getGcInfoByNameRequest"/>
+    </wsdl:message>
+    <wsdl:message name="GetGcInfoByNameSoapOut">
+        <wsdl:part name="parameters" element="tnst:getGcInfoByNameResponse"/>
+    </wsdl:message>
+
+    <!--Interfaces-->
+    <wsdl:portType name="javaInfo">
+
+        <wsdl:operation name="getJavaInfo">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+                Метод возвращает значение системных переменных "java.vendor", "java.vendor.url", "java.version".
+            </wsdl:documentation>
+            <wsdl:input message="tns:GetJavaInfoSoapIn"/>
+            <wsdl:output message="tns:GetJavaInfoSoapOut"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="getOsInfo">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+                Метод возвращает значение системных переменных "os.name", "os.arch", "os.version".
+            </wsdl:documentation>
+            <wsdl:input message="tns:GetOsInfoSoapIn"/>
+            <wsdl:output message="tns:GetOsInfoSoapOut"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="getTotalMemory">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+                Метод возвращает общий объём памяти, доступный виртуальной машине Java.
+            </wsdl:documentation>
+            <wsdl:input message="tns:GetTotalMemorySoapIn"/>
+            <wsdl:output message="tns:GetTotalMemorySoapOut"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="getFreeMemory">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+                Метод возвращает объём свободной памяти, доступный виртуальной машине Java.
+            </wsdl:documentation>
+            <wsdl:input message="tns:GetFreeMemorySoapIn"/>
+            <wsdl:output message="tns:GetFreeMemorySoapOut"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="getAvailableProcessors">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+                Метод возвращает количество процессорных ядер, доступных виртуальной машине Java.
+            </wsdl:documentation>
+            <wsdl:input message="tns:GetAvailableProcessorsSoapIn"/>
+            <wsdl:output message="tns:GetAvailableProcessorsSoapOut"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="getGcNames">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+                Метод возвращает имена всех сборщиков мусора виртуальной машины Java
+            </wsdl:documentation>
+            <wsdl:input message="tns:GetGcNamesSoapIn"/>
+            <wsdl:output message="tns:GetGcNamesSoapOut"/>
+        </wsdl:operation>
+
+        <wsdl:operation name="getGcInfoByName">
+            <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+                Метод возвращает структурированную информацию о сборщике мусора и статистике его работы
+            </wsdl:documentation>
+            <wsdl:input message="tns:GetGcInfoByNameSoapIn" name="GetGcInfoByName"/>
+            <wsdl:output message="tns:GetGcInfoByNameSoapOut"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <!--    Bindings-->
+    <wsdl:binding name="javaInfo" type="tns:javaInfo">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+        <wsdl:operation name="getJavaInfo">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input/>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="getAvailableProcessors">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="getFreeMemory">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="getGcInfoByName">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input name="GetGcInfoByName"/>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="getGcNames">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="getOsInfo">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+
+        <wsdl:operation name="getTotalMemory">
+            <soap:operation soapAction="" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="javaInfo">
+        <wsdl:port binding="tns:javaInfo" name="javaInfo">
+            <soap:address location="http://localhost:9090/JavaInfoPort"/>
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>
