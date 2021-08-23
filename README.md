@@ -1,5 +1,7 @@
 ## SOAP Веб сервис с использованием подхода WSDL-First для среды OSGI
 
+![Java](https://img.shields.io/badge/-Java-05122A?style=flat&logo=Java&logoColor=FFA518) ![WebService](https://img.shields.io/badge/-WebService-05122A?style=flat) ![SOAP](https://img.shields.io/badge/-SOAP-05122A?style=flat) ![CXF](https://img.shields.io/badge/-CXF-05122A?style=flat) ![OSGI](https://img.shields.io/badge/-OSGI-05122A?style=flat) ![Maven](https://img.shields.io/badge/-Maven-05122A?style=flat&logo=apachemaven&logoColor=fffffb) ![ApacheServiceMix](https://img.shields.io/badge/-Apache_Service_Mix-05122A?style=flat) ![Apache Aries](https://img.shields.io/badge/-Apache_Aries-05122A?style=flat) ![SoapUI](https://img.shields.io/badge/-SoapUI-05122A?style=flat)
+
 ### Основные технологии:
 * Java 8;
 * Система управления зависимости и сборкой - Apache Maven 3;
